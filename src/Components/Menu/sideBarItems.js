@@ -10,10 +10,7 @@ export default {
       name: "Carousel",
       url: "/carousel",
     },
-    {
-      name: "Menu",
-      url: "/menu",
-    },
+
     {
       name: "Dasturlash Tillari",
       url: "/proglang",
@@ -37,14 +34,6 @@ export default {
     {
       name: "Videodarslar",
       url: "/videos",
-    },
-    {
-      name: "Biz Bilan Aloqa",
-      url: "/contact",
-    },
-    {
-      name: "Footer",
-      url: "/footer",
     },
   ],
 };

@@ -28,6 +28,26 @@ const Home = () => {
           <Route path="/kurslar" component={Kurslar} />
         </Switch>
       </Router>
+      <div
+        style={{
+          marginLeft: "220px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          alignContent: "center",
+          marginTop: "300px",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "40px",
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          CodemyUz Web sayti Admin Paneli
+        </p>
+      </div>
     </div>
   );
 };
