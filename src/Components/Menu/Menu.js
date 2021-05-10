@@ -4,9 +4,16 @@ import clsx from "clsx";
 import menuItems from "./sideBarItems";
 import { NavLink as RouterLink } from "react-router-dom";
 import useStyles from "./menuBarStyles.js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../store/actions";
 
 const MenuBar = (props) => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(signOut());
+  };
+
   const [menu, setMenu] = useState({});
   const { className, ...rest } = props;
   const classes = useStyles();
@@ -96,6 +103,16 @@ const MenuBar = (props) => {
       <List {...rest} className={clsx(classes.root, className)}>
         {handleMenu(menuItems.data)}
       </List>
+      <Button
+        style={{
+          marginTop: "300px",
+          backgroundColor: "#51be78",
+          color: "#fff",
+        }}
+        onClick={handleLogout}
+      >
+        LogOut
+      </Button>
     </Drawer>
   ) : (
     ""
