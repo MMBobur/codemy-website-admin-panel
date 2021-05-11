@@ -103,16 +103,28 @@ const MenuBar = (props) => {
       <List {...rest} className={clsx(classes.root, className)}>
         {handleMenu(menuItems.data)}
       </List>
-      <Button
+      <div
         style={{
-          marginTop: "300px",
-          backgroundColor: "#51be78",
-          color: "#fff",
+          height: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          flexDirection: "column",
         }}
-        onClick={handleLogout}
       >
-        LogOut
-      </Button>
+        <Button
+          style={{
+            display: "flex",
+            position: "fixed",
+            margin: "20px",
+            backgroundColor: "#51be78",
+            color: "#fff",
+            width: "170px",
+          }}
+          onClick={handleLogout}
+        >
+          LogOut
+        </Button>
+      </div>
     </Drawer>
   ) : (
     ""
