@@ -175,16 +175,14 @@ function Form() {
                     {getItem.title}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <IconButton>
+                    <IconButton onClick={() => deleteIcon(getItem.id)}>
                       <DeleteIcon
-                        onClick={() => deleteIcon(getItem.id)}
                         fontSize="default"
                         color="error"
                       />
                     </IconButton>
-                    <IconButton>
+                    <IconButton  onClick={() => handleEdit(getItem.id)}>
                       <EditIcon
-                        onClick={() => handleEdit(getItem.id)}
                         fontSize="default"
                         style={{ color: "green", marginLeft: "15%" }}
                       />
