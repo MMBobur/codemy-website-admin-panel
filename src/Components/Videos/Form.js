@@ -193,8 +193,10 @@ function Form() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((getItem, id) => (
-              <StyledTableRow
+            {data.map((getItem, id) => {
+              var add=getItem.Url.toString()
+              return(
+                <StyledTableRow
                 key={getItem.id}
                 style={{ fontSize: "17px" }}
                 hover
@@ -214,16 +216,9 @@ function Form() {
                 <StyledTableCell align="left" style={{ fontSize: "20px" }}>
                   {getItem.text}
                 </StyledTableCell>
-                <StyledTableCell align="center">
-                  <iframe
-                    width="250"
-                    height="215"
-                    src={getItem.Url}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+                <StyledTableCell align="center" >
+                <div dangerouslySetInnerHTML={{__html: add}} />
+                  
                 </StyledTableCell>
                 <StyledTableCell
                   style={{
@@ -251,7 +246,8 @@ function Form() {
                   </IconButton>
                 </StyledTableCell>
               </StyledTableRow>
-            ))}
+              )
+            })}
           </TableBody>
         </Table>
       </TableContainer>
