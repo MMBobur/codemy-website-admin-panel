@@ -25,7 +25,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <Menu auth={loggedIn} />
+        <Menu auth={loggedIn.toString()} />
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/home" />} />
           <GuardedRoute path="/home" exact auth={loggedIn} component={Home} />
