@@ -53,6 +53,9 @@ const CoursesForm = () => {
 
   const [oneD, setOneD] = useState({
     img_title: "",
+    reyting: "",
+    cardText: "",
+    cardTitle: "",
   });
 
   useEffect(() => {
@@ -72,11 +75,15 @@ const CoursesForm = () => {
     setA(false);
   };
   const addData = async (data) => {
+    console.log(data);
     if (isEdit > 0) {
       let formData = new FormData();
 
       formData.append("file", imageUrl);
       formData.append("img_title", data.img_title);
+      formData.append("rating", data.reyting);
+      formData.append("card_text", data.cardText);
+      formData.append("card_title", data.cardTitle);
 
       await coursesService.update(isEdit, formData, token).then((res) => {
         setIsActive(!isActive);
@@ -86,6 +93,9 @@ const CoursesForm = () => {
       let formData = new FormData();
       formData.append("file", imageUrl);
       formData.append("img_title", data.img_title);
+      formData.append("rating", data.reyting);
+      formData.append("card_text", data.cardText);
+      formData.append("card_title", data.cardTitle);
 
       await coursesService.create(formData, token).then((res) => {
         setIsActive(!isActive);
@@ -124,6 +134,9 @@ const CoursesForm = () => {
     setOneD({
       img_url: "",
       img_title: "",
+      reyting: "",
+      cardText: "",
+      cardTitle: "",
     });
   };
 
@@ -143,6 +156,15 @@ const CoursesForm = () => {
               <StyledTableCell style={{ fontSize: "17px" }} align="center">
                 Title
               </StyledTableCell>
+              <StyledTableCell style={{ fontSize: "17px" }} align="center">
+                Reyting
+              </StyledTableCell>
+              <StyledTableCell style={{ fontSize: "17px" }} align="center">
+                Card Title
+              </StyledTableCell>
+              <StyledTableCell style={{ fontSize: "17px" }} align="center">
+                Card Text
+              </StyledTableCell>
               <StyledTableCell style={{ fontSize: "17px" }} align="right">
                 Actions
               </StyledTableCell>
@@ -156,6 +178,15 @@ const CoursesForm = () => {
                 </StyledTableCell>
                 <StyledTableCell align="center" style={{ fontSize: "17px" }}>
                   {demo.img_title}
+                </StyledTableCell>
+                <StyledTableCell align="center" style={{ fontSize: "17px" }}>
+                  {demo.rating}
+                </StyledTableCell>
+                <StyledTableCell align="center" style={{ fontSize: "17px" }}>
+                  {demo.card_title}
+                </StyledTableCell>
+                <StyledTableCell align="center" style={{ fontSize: "17px" }}>
+                  {demo.card_text}
                 </StyledTableCell>
                 <StyledTableCell align="right">
                   <IconButton onClick={() => delCourses(demo.id)}>
