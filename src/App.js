@@ -9,7 +9,7 @@ import ProgLang from "./Components/proglang/proglang";
 import Video from "./Components/Videos/Videos";
 import About from "./Components/about/AboutIndex";
 import Kurslar from "./Components/courses/courses";
-
+import './index.css'
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import GuardedRoute from "./Components/util/GuardedRoute";
 

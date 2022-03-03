@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     // border: "2px solid indigo",
     borderRadius: "10px",
-    
+
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     paddingTop: "30px",
@@ -34,12 +34,22 @@ const CoursesModal = ({
 }) => {
   const classes = useStyles();
   const [img_title, setImg_title] = useState("");
+  const [reyting, setReyting] = useState("");
+  const [cardTitle, setCardTitle] = useState("");
+  const [cardText, setCardText] = useState("");
+
   const handleClear = () => {
     setImg_title("");
+    setReyting("");
+    setCardText("");
+    setCardTitle("");
   };
 
   useEffect(() => {
     setImg_title(one.img_title);
+    setReyting(one.reyting);
+    setReyting(one.cardTitle);
+    setReyting(one.cardText);
   }, [one]);
 
   const handleOnClose = () => {
@@ -65,7 +75,7 @@ const CoursesModal = ({
           timeout: 500,
         }}
       >
-        <Fade in={window}>
+        <Fade style={{ width: "1000px" }} in={window}>
           <div className={classes.paper}>
             <h2 style={{ color: "indigo" }}>Add Courses</h2>
             <form className={classes.root} noValidate autoComplete="off">
@@ -76,6 +86,30 @@ const CoursesModal = ({
                   placeholder="Enter title"
                   value={img_title}
                   onChange={(e) => setImg_title(e.target.value)}
+                  className="form-control"
+                />
+                <label className="label">Reyting</label>
+                <input
+                  type="number"
+                  placeholder="Enter Reyting"
+                  value={reyting}
+                  onChange={(e) => setReyting(e.target.value)}
+                  className="form-control"
+                />
+                <label className="label">Card title</label>
+                <input
+                  type="text"
+                  placeholder="Enter Card Title"
+                  value={cardTitle}
+                  onChange={(e) => setCardTitle(e.target.value)}
+                  className="form-control"
+                />
+                <label className="label">Card Text</label>
+                <input
+                  type="text"
+                  placeholder="Enter Card Text"
+                  value={cardText}
+                  onChange={(e) => setCardText(e.target.value)}
                   className="form-control"
                 />
                 <input
@@ -98,8 +132,8 @@ const CoursesModal = ({
                   variant="contained"
                   color="primary"
                   onClick={() => {
-                    addData({ img_title })
-                    handleClear()
+                    addData({ img_title, reyting, cardText, cardTitle });
+                    handleClear();
                   }}
                 >
                   {valBtn}
