@@ -25,3 +25,8 @@
   align-items: flex-end;
   margin-left: 200px;
 }
+
+iframe{
+  width: 350px;
+  height: 200px;
+}
